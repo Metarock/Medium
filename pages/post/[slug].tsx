@@ -9,8 +9,6 @@ interface SlugProps {
 }
 
 function Post({ post }: SlugProps) {
-    console.log('slug ', post);
-
     return (
         <main>
             <Header />
@@ -79,5 +77,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         props: {
             post,
         },
+
+        // if there is an update, update the cache
+        // after 60 seconds, it will update the old cached version
+        revalidate: 60,
     };
 };

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 export const Header: React.FC = ({}) => {
     return (
-        <header>
+        <header className='flex justify-between p-5 max-w-7xl mx-auto'>
             <div className='flex items-center space-x-5'>
                 <Link href='/'>
                     <img
@@ -21,7 +21,12 @@ export const Header: React.FC = ({}) => {
                     </h3>
                 </div>
             </div>
-            <div></div>
+            <div className='flex items-center space-x-5 text-green-600'>
+                <h3>Sign in</h3>
+                <h3 className='border px-4 py-1 rounded-full border-green-600'>
+                    Get Started
+                </h3>
+            </div>
         </header>
     );
 };

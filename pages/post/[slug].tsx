@@ -57,7 +57,7 @@ function Post({ post }: SlugProps) {
                                 />
                             ),
                             h2: (props: any) => (
-                                <h1
+                                <h2
                                     className='text-xl font-bold my-5'
                                     {...props}
                                 />

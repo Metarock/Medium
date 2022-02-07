@@ -89,7 +89,7 @@ function Post({ post }: SlugProps) {
                 <label className='block mb-5 '>
                     <span className='text-gray-700'>Name</span>
                     <input
-                        className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500'
+                        className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring'
                         placeholder='John Appleased'
                         type='text'
                     />
@@ -97,7 +97,7 @@ function Post({ post }: SlugProps) {
                 <label className='block mb-5 '>
                     <span className='text-gray-700'>Email</span>
                     <input
-                        className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500'
+                        className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring'
                         placeholder='John Appleased'
                         type='text'
                     />
@@ -105,7 +105,7 @@ function Post({ post }: SlugProps) {
                 <label className='block mb-5 '>
                     <span className='text-gray-700'>Comment</span>
                     <textarea
-                        className='shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-500'
+                        className='shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-500 outline-none focus:ring'
                         placeholder='John Appleased'
                         rows={8}
                     />

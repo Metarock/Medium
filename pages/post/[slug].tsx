@@ -4,12 +4,28 @@ import { Header } from '../../components/Header';
 import { sanityClient, urlFor } from '../../sanity';
 import { Post } from '../../typings';
 import PortableText from 'react-portable-text';
+import { useForm, SubmitHandler } from 'react-hook-form';
+
+interface InputFormProp {
+    _id: string;
+    name: string;
+    email: string;
+    comment: string;
+}
 
 interface SlugProps {
     post: Post;
 }
 
 function Post({ post }: SlugProps) {
+    // React hook form
+    // The interface instructs react-hook-form to only accept the pre-defined types
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<InputFormProp>();
+
     return (
         <main>
             <Header />
@@ -86,11 +102,20 @@ function Post({ post }: SlugProps) {
                 </h3>
                 <h4 className='text-3xl font-bold'>Leave a comment below</h4>
                 <hr className='py-3 mt-2' />
+
+                {/* Invisible Id */}
+                <input
+                    {...register('_id')}
+                    type='hidden'
+                    name='_id'
+                    value={post._id}
+                />
+
                 <label className='block mb-5 '>
                     <span className='text-gray-700'>Name</span>
                     <input
                         className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring'
-                        placeholder='John Appleased'
+                        placeholder='Name'
                         type='text'
                     />
                 </label>
@@ -98,7 +123,7 @@ function Post({ post }: SlugProps) {
                     <span className='text-gray-700'>Email</span>
                     <input
                         className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring'
-                        placeholder='John Appleased'
+                        placeholder='Email'
                         type='text'
                     />
                 </label>
@@ -106,7 +131,7 @@ function Post({ post }: SlugProps) {
                     <span className='text-gray-700'>Comment</span>
                     <textarea
                         className='shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-500 outline-none focus:ring'
-                        placeholder='John Appleased'
+                        placeholder='Comment'
                         rows={8}
                     />
                 </label>
